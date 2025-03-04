@@ -31,8 +31,6 @@ def parse_newCMD(request):
     reply = DNSRecord(DNSHeader(id=request.header.id, qr=1, aa=1, ra=1), q=request.q)
     TTL = 1
     rdata = TXT("hostname")
-    #if len(request.q.qname.label[0]) >= 8:
-    #    cmd = 'NoCMD'
     rqt = rdata.__class__.__name__
     reply.add_answer(RR(rname=request.q.qname, rtype=QTYPE.TXT, rclass=1, ttl=TTL, rdata=rdata))
     return reply.pack()
@@ -94,12 +92,6 @@ def main(WebRequestFile=None, single=None):
     thread.daemon = True  # exit the server thread when the main thread terminates
     try:
         thread.start()
-        # if WebRequestFile:
-        #     thread2 = threading.Thread(target=send_reqT, args=(penc,))
-        #     thread2.daemon = True
-        #     thread2.start()
-        # else:
-        #print "[+] Linux:\n%s" % prepare_linux()
         while thread.is_alive():
             time.sleep(1)
             # sys.stdout.flush()
