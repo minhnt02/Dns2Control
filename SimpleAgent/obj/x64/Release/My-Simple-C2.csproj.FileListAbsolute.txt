@@ -1,0 +1,11 @@
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\obj\x64\Release\My-Simple-C2.csproj.AssemblyReference.cache
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\obj\x64\Release\My-Simple-C2.csproj.CoreCompileInputs.cache
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\bin\x64\Release\My-Simple-C2.exe.config
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\bin\x64\Release\My-Simple-C2.exe
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\bin\x64\Release\My-Simple-C2.pdb
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\bin\x64\Release\DnsClient.dll
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\bin\x64\Release\Microsoft.Win32.Registry.dll
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\obj\x64\Release\My-Simpl.6C632F1E.Up2Date
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\obj\x64\Release\My-Simple-C2.exe
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\obj\x64\Release\My-Simple-C2.pdb
+C:\Users\minhnt79\Desktop\Anti-AV\My-Simple-C2\bin\x64\Release\System.Management.Automation.dll
